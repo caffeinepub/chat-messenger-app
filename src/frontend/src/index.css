@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* WhatsApp-inspired green palette (OKLCH) */
+    /* Primary green: #22B35A → oklch(0.65 0.17 145) */
+    --chat-green: 0.65 0.17 145;
+    /* Darker green for active/buttons: #1E7A3F → oklch(0.52 0.15 145) */
+    --chat-green-dark: 0.52 0.15 145;
+    /* Outgoing bubble: #1F6F3A → oklch(0.48 0.14 145) */
+    --bubble-out: 0.48 0.14 145;
+    /* Unread badge green: #26B15B → oklch(0.65 0.175 145) */
+    --badge-green: 0.65 0.175 145;
+
+    /* App canvas: #F2F3F5 → oklch(0.963 0.004 247) */
+    --background: 0.963 0.004 247;
+    /* White surfaces */
+    --card: 1 0 0;
+    --card-foreground: 0.14 0 0;
+    --popover: 1 0 0;
+    --popover-foreground: 0.14 0 0;
+
+    /* Foreground: near-black #111213 → oklch(0.14 0.002 247) */
+    --foreground: 0.14 0.002 247;
+
+    /* Primary = chat green */
+    --primary: 0.65 0.17 145;
+    --primary-foreground: 1 0 0;
+
+    /* Secondary (muted): light gray #F2F3F5 */
+    --secondary: 0.963 0.004 247;
+    --secondary-foreground: 0.14 0 0;
+
+    /* Muted: #E9EAED → oklch(0.933 0.004 247) */
+    --muted: 0.933 0.004 247;
+    --muted-foreground: 0.54 0.008 247;
+
+    /* Accent: match muted */
+    --accent: 0.933 0.004 247;
+    --accent-foreground: 0.14 0 0;
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Borders: #E6E8EB → oklch(0.918 0.006 247) */
+    --border: 0.918 0.006 247;
+    --input: 0.918 0.006 247;
+    --ring: 0.65 0.17 145;
+
+    /* Sidebar tokens (left nav rail) */
+    --sidebar: 0.65 0.17 145;
+    --sidebar-foreground: 1 0 0;
+    --sidebar-primary: 0.48 0.14 145;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.55 0.155 145;
+    --sidebar-accent-foreground: 1 0 0;
+    --sidebar-border: 0.55 0.15 145;
+    --sidebar-ring: 0.65 0.17 145;
+
+    /* Chart tokens */
+    --chart-1: 0.65 0.17 145;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(var(--border));
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(var(--muted-foreground));
+  }
+}
